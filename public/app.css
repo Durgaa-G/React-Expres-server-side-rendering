@@ -1,0 +1,86 @@
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.clearfix:after {
+    content: "";
+    clear: both;
+    display: block;
+    height: 0;
+    line-height: 0;
+
+}
+
+#root {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.post {
+    background-color: #e1e1e1;
+    padding: 10px;
+}
+
+.post:nth-child(even) {
+    background-color: #eee;
+}
+
+.post .post_comment-count {
+    float: left;
+    width: 70px
+}
+
+.post_comment-upvote {
+    float: left;
+    width: 40px
+}
+
+.post_comment-upvote button {
+    border: 0;
+    background-color: transparent;
+    padding: 0;
+    width: 0;
+    height: 0;
+    border-bottom: 5px solid #333;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    margin-bottom: 10px;
+}
+
+.post_comment-info {
+    float: left;
+    width: 100%;
+    max-width: calc(100% - 180px);
+}
+
+.post-url {
+    color: #666;
+    font-size: 0.8rem;
+}
+
+.header.post {
+    background-color: darkorange;
+    color: #fff;
+    font-weight: 700;
+    font-size: 0.8rem;
+}
+
+.hidepost {
+    border: 0;
+    background-color: transparent;
+}
+
+.prev-next {
+    text-align: right;
+    border-bottom: 2px solid darkorange;
+    padding: 5px 10px;
+    background-color: whitesmoke;
+}
+
+.prev-next a {
+    color: darkorange;
+    margin-left: 10px;
+    text-decoration: none;
+}
