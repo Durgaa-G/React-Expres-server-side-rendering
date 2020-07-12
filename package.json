@@ -41,9 +41,7 @@
     "webpack-cli": "^3.3.12",
     "nodemon": "2.0.4"
   },
-  "devDependencies": {
-
-  },
+  "devDependencies": {},
   "scripts": {
     "dev:server": "nodemon --watch build --exec \"node build/bundle.js\"",
     "dev:build": "webpack --config webpack.server.js --watch",

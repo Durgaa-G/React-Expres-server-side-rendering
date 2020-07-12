@@ -46,12 +46,9 @@ const Home = () => {
 
             let localItems = JSON.parse(localStorage.getItem('hiddenItem'));
             posts.data.hits.forEach((p,i) => {
-                console.log("on2")
+
                 localItems.forEach((l,k)=>{
                     if(p.objectID === l.objectID){
-                        console.log("on3")
-
-
                         dispatch(actionCreators.hidePost(p.objectID));
                     }
                 })
@@ -67,11 +64,11 @@ const Home = () => {
 
 
     return <div>
-        {(pagePost && pagePost.data && pagePost.data.hits) ? <Posts posts={pagePost.data.hits} /> : "Loading"}
+        {(posts && posts.data && posts.data.hits) ? <Posts posts={posts.data.hits} /> : "Loading"}
 
-        {pagePost ? <div className="prev-next">
+        {posts ? <div className="prev-next">
             {pagenum > 1 ? <NavLink to={"/" + parseInt(parseInt(pagenum) - 1)}>Prev</NavLink> : null}
-            {pagenum < pagePost.data.nbPages ? <NavLink to={"/" + parseInt(parseInt(pagenum) + 1)}>Next</NavLink> : null}
+            {pagenum < posts.data.nbPages ? <NavLink to={"/" + parseInt(parseInt(pagenum) + 1)}>Next</NavLink> : null}
         </div> : null}
 
 

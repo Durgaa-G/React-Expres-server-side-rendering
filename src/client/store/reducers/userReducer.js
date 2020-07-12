@@ -8,7 +8,6 @@ export default (state = {}, action) => {
         case FETCH_POST:
             return { ...state, data: action.payload }
         case POST_UPVOTE:
-            console.log(action)
             let updateObj,
             items = state.data.hits,
             localitem;
