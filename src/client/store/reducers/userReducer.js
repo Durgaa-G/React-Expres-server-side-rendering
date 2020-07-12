@@ -8,6 +8,7 @@ export default (state = {}, action) => {
         case FETCH_POST:
             return { ...state, data: action.payload }
         case POST_UPVOTE:
+            console.log(action)
             let updateObj,
             items = state.data.hits,
             localitem;
@@ -73,6 +74,7 @@ export default (state = {}, action) => {
 
                         hideFromLocalStorage.forEach((p, i) => {
 
+
                             if (p.objectID === item.objectID) {
 
                                 hideFromLocalStorage[i] =p;
@@ -90,11 +92,10 @@ export default (state = {}, action) => {
 
 
 
-                    hideItems[i] = updateItem;
-                    hideObj = { ...items, hideItems }
+                    hideItems.splice(i,1);
                 }
             });
-            return { ...state }
+            return { ...state, hideObj}
 
         default:
             return state;

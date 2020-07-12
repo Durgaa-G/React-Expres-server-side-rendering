@@ -47,6 +47,8 @@
     "dev:server": "nodemon --watch build --exec \"node build/bundle.js\"",
     "dev:build": "webpack --config webpack.server.js --watch",
     "dev:build-client": "webpack --config webpack.client.js --watch",
-    "dev": "npm-run-all --parallel dev:*"
+    "dev": "npm-run-all --parallel dev:*",
+    "start":"npm-run-all --parallel dev:*"
+
   }
 }

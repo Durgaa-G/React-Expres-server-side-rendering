@@ -1,5 +1,5 @@
 module.exports = {
-
+    mode: process.env.PORT,
     // inform webpack to run babel on each file
     module: {
         rules: [

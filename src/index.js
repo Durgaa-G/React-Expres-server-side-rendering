@@ -8,13 +8,13 @@ import proxy from "express-http-proxy"
 
 const app = express();
 
-app.use("/api", proxy("https://hn.algolia.com/api/v1", {
-    proxyReqOptDecorator(opts) {
-        opts.header['x-forwarded-host'] = "localhost:3000";
-        return opts;
-    }
+// app.use("/api", proxy("https://hn.algolia.com/api/v1", {
+//     proxyReqOptDecorator(opts) {
+//         opts.header['x-forwarded-host'] = "localhost:3000";
+//         return opts;
+//     }
 
-}))
+// }))
 
 app.use(express.static('public'))
 
@@ -31,6 +31,6 @@ app.get("*", (req, res) => {
     })
 })
 
-app.listen(3000, () => {
-    console.log(`app is running`)
+app.listen(process.env.PORT, () => {
+    console.log(`app is running on port ${process.env.PORT}`)
 })

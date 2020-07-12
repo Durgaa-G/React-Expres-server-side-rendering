@@ -1,11 +1,12 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import * as actionCreators from "../store/actions/index";
 
 const PostItem = ({ num_comments, points, title, url, author, created_at, objectID }) => {
     const dispatch = useDispatch();
 
     const hidePost = (e) => {
+
         dispatch(actionCreators.hidePost(objectID));
     }
     const upVote = () => {
@@ -21,7 +22,9 @@ const PostItem = ({ num_comments, points, title, url, author, created_at, object
 
 
         <div className="post_comment-upvote">
-            <button title="Up vote" onClick={(objectID) => upVote(objectID)}></button>
+            <button title="Up vote" onClick={(objectID) => upVote(objectID)}>
+                <span></span>
+            </button>
         </div>
         <div className="post_comment-info">
             {title}

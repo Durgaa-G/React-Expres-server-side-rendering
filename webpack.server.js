@@ -5,6 +5,7 @@ const webpackNodeExternals =require('webpack-node-externals')
 
 const config = {
     //inform webpack we are buildingfor webpack
+    mode: process.env.PORT,
     target: 'node',
     //inform webpack entry path
     entry: './src/index.js',

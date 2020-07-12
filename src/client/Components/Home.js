@@ -3,8 +3,8 @@ import { useParams, NavLink } from "react-router-dom";
 import Posts from "./Posts";
 import Graph from "./Chart"
 import { useDispatch, useSelector } from "react-redux";
-import * as actionCreators from "../store/actions/index"
-
+import * as actionCreators from "../store/actions/index";
+import PageLayout from "../HOC/PageLayout"
 let pagenum;
 const Home = () => {
     const { pageNumber } = useParams();
@@ -13,14 +13,14 @@ const Home = () => {
     const [pagePost, setPagePost] = useState();
 
     const dispatch = useDispatch();
-    pagenum =pageNumber||1;
+    pagenum =pageNumber?pageNumber:1;
 
     useEffect(() => {
 
-        dispatch(actionCreators.fetchPost(pageNumber));
+        dispatch(actionCreators.fetchPost(pagenum));
         window.scrollTo(0, 0);
 
-    }, [ pageNumber]);
+    }, [ pagenum]);
 
     useEffect(()=>{
 
@@ -43,13 +43,16 @@ const Home = () => {
 
         }
         if (localStorage.getItem('hiddenItem')) {
+
             let localItems = JSON.parse(localStorage.getItem('hiddenItem'));
             posts.data.hits.forEach((p,i) => {
-
+                console.log("on2")
                 localItems.forEach((l,k)=>{
                     if(p.objectID === l.objectID){
-                      posts.data.hits.splice(i,1)
+                        console.log("on3")
 
+
+                        dispatch(actionCreators.hidePost(p.objectID));
                     }
                 })
 
@@ -61,12 +64,14 @@ const Home = () => {
     }, [posts])
 
 
+
+
     return <div>
         {(pagePost && pagePost.data && pagePost.data.hits) ? <Posts posts={pagePost.data.hits} /> : "Loading"}
 
         {pagePost ? <div className="prev-next">
-            {pageNumber > 1 ? <NavLink to={"/" + parseInt(parseInt(pageNumber) - 1)}>Prev</NavLink> : null}
-            {pageNumber < pagePost.data.nbPages ? <NavLink to={"/" + parseInt(parseInt(pageNumber) + 1)}>Next</NavLink> : null}
+            {pagenum > 1 ? <NavLink to={"/" + parseInt(parseInt(pagenum) - 1)}>Prev</NavLink> : null}
+            {pagenum < pagePost.data.nbPages ? <NavLink to={"/" + parseInt(parseInt(pagenum) + 1)}>Next</NavLink> : null}
         </div> : null}
 
 
@@ -81,5 +86,5 @@ export const loadData = (store) => {
 
 export default {
     loadData,
-    component: Home
+    component: PageLayout(Home)
 };
