@@ -43,10 +43,17 @@
   },
   "devDependencies": {},
   "scripts": {
-    "dev:server": "nodemon --watch build --exec \"node build/bundle.js\"",
+
     "dev:build": "webpack --config webpack.server.js --watch",
     "dev:build-client": "webpack --config webpack.client.js --watch",
+    "dev:server": "nodemon --watch build --exec \"node build/bundle.js\"",
     "dev": "npm-run-all --parallel dev:*",
-    "start": "npm run dev"
+
+    "prod:build": "webpack --config webpack.server.js",
+    "prod:build-client": "webpack --config webpack.client.js",
+    "prod:server": "node",
+    "prod": "npm-run-all --parallel prod:*",
+
+    "start": "npm run prod"
   }
 }
