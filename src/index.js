@@ -30,7 +30,7 @@ app.get("*", (req, res) => {
         res.send(renderer(req, store))
     })
 })
-
+console.log(`port: ${process.env.PORT}--${$PORT}-- port: ${process.env.$PORT}`)
 app.listen(process.env.PORT, () => {
     console.log(`app is running on port ${process.env.PORT}`)
 })
