@@ -3,7 +3,7 @@ const merge  = require('webpack-merge');
 const baseConfig = require('./webpack.base.js')
 
 const config = {
-    mode: process.env.PORT,
+    mode: 'development',
     //inform webpack entry path
     entry: './src/client/client.js',
     //inform webpack where to put bundle file
