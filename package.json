@@ -54,6 +54,6 @@
     "prod:server": "node",
     "prod": "npm-run-all --parallel prod:*",
 
-    "start": "npm run prod"
+    "start": "npm run dev"
   }
 }
