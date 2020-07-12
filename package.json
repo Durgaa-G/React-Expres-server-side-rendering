@@ -48,6 +48,9 @@
     "dev:build": "webpack --config webpack.server.js --watch",
     "dev:build-client": "webpack --config webpack.client.js --watch",
     "dev": "npm-run-all --parallel dev:*",
-    "start": "npm run dev"
+    "prod:server": "node --watch build --exec \"node build/bundle.js\"",
+    "prod:build": "webpack --config webpack.server.js --watch",
+    "prod:build-client": "webpack --config webpack.client.js --watch",
+    "start": "npm-run-all --parallel prod:*"
   }
 }
