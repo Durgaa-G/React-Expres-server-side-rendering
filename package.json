@@ -38,20 +38,17 @@
     "@babel/core": "^7.10.4",
     "@babel/preset-env": "^7.10.4",
     "webpack": "^4.43.0",
-    "webpack-cli": "^3.3.12"
+    "webpack-cli": "^3.3.12",
+    "nodemon": "2.0.4"
   },
   "devDependencies": {
-    "nodemon": "2.0.4"
+
   },
   "scripts": {
     "dev:server": "nodemon --watch build --exec \"node build/bundle.js\"",
     "dev:build": "webpack --config webpack.server.js --watch",
     "dev:build-client": "webpack --config webpack.client.js --watch",
     "dev": "npm-run-all --parallel dev:*",
-
-    "prod:server": "node build/bundle.js",
-    "prod:build": "webpack --config webpack.server.js",
-    "prod:build-client": "webpack --config webpack.client.js",
-    "start": "npm-run-all --parallel prod:*"
+    "start": "npm run dev"
   }
 }
