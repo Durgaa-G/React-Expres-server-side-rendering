@@ -53,7 +53,5 @@
     "prod:build": "webpack --config webpack.server.js && webpack --config webpack.client.js",
     "prod": "npm-run-all --parallel prod:*",
     "start": "npm run prod"
-
-    "start": "npm run dev"
   }
 }
