@@ -53,6 +53,6 @@
     "prod:build": "webpack --config webpack.server.js",
     "prod:build-client": "webpack --config webpack.client.js",
     "prod": "npm-run-all --parallel prod:*",
-    "start": "npm run prod"
+    "start": "node build/bundle.js && webpack --config webpack.server.js &&  webpack.client.js"
   }
 }
